@@ -9,7 +9,7 @@
 
 /* Body */
 :is(html[class~='dark'] body) {
-  background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+    background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
 }
 
 /* Theme Toggle & Question? with shadows */

@@ -2,14 +2,10 @@
   "index": "Introduction",
   "another": "Another Page",
   "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
   "contact": {
-    "title": "Contact ↗",
+    "title": "Discussions ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://github.com/nextjs-guide/nextjs.guide/discussions",
     "newWindow": true
   }
 }
