@@ -75,7 +75,7 @@ const config: DocsThemeConfig = {
   ),
   logoLink: '/',
   project: {
-    link: 'https://github.com/nextjs-guide/nextjs.guide',
+    link: 'https://github.com/nextjs-guide/nextjs.guide-template',
   },
   footer: {
     text: 'Next.js Guide',
