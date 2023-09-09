@@ -1,3 +1,8 @@
 {
-  "contribution-guide": "Contribution Guide"
+  "contribution-guide": {
+    "title": "Contribution Guide",
+    "theme": {
+      "breadcrumb": true
+    }
+  }
 }

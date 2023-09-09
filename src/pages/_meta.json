@@ -1,12 +1,18 @@
 {
   "index": {
-    "title": "Getting Started",
+    "display": "hidden",
     "theme": {
       "breadcrumb": false
     }
   },
+  "getting-started": {
+    "title": "Getting Started"
+  },
   "community": {
-    "title": "Community"
+    "title": "Community",
+    "theme": {
+      "breadcrumb": false
+    }
   },
   "contact": {
     "title": "Contact ↗",

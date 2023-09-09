@@ -1,5 +1,5 @@
+import Image, { ImageProps } from 'next/image'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 
 const NextJS = () => (
@@ -59,6 +59,14 @@ const config: DocsThemeConfig = {
       </>
     )
   },
+  // sidebar: {
+  //   titleComponent({ title, type, route }) {
+  //     if (route.split('/').length === 2) return
+  //     console.log(type, title, route)
+  //     return <>{title}</>
+  //   },
+  //   toggleButton: false,
+  // },
   logo: (
     <>
       <Vercel />
@@ -70,8 +78,6 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/nextjs-guide/nextjs.guide',
   },
-  docsRepositoryBase:
-    'https://github.com/nextjs-guide/nextjs.guide-template/tree/main/docs',
   footer: {
     text: 'Next.js Guide',
   },
@@ -79,7 +85,7 @@ const config: DocsThemeConfig = {
   components: {
     Check: () => <span>✅</span>,
     Cross: () => <span>❌</span>,
-    Image: (props: any) => <Image src={props.src} alt={props.alt} {...props} />,
+    Image: (props: any) => <Image src={props.srcDark} {...props} />,
   },
 }
 
