@@ -1,4 +1,5 @@
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import { useRouter } from 'next/router'
+import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 
 const NextJS = () => (
   <svg height="20" viewBox="0 0 283 64" fill="none">
@@ -31,6 +32,32 @@ const Vercel = () => (
 )
 
 const config: DocsThemeConfig = {
+  head: () => {
+    const { asPath, defaultLocale, locale } = useRouter()
+    const { frontMatter } = useConfig()
+    const url =
+      'https://nextjs.guide' +
+      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+
+    return (
+      <>
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={frontMatter.title} />
+        <meta property="og:description" content={frontMatter.description} />
+      </>
+    )
+  },
+  main: ({ children }) => {
+    const { frontMatter } = useConfig()
+    return (
+      <>
+        <h1 className="nx-mt-2 nx-text-4xl nx-font-bold nx-tracking-tight">
+          {frontMatter.title}
+        </h1>
+        {children}
+      </>
+    )
+  },
   logo: (
     <>
       <Vercel />

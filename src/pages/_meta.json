@@ -1,5 +1,10 @@
 {
-  "index": "Introduction",
+  "index": {
+    "title": "Getting Started",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
   "another": "Another Page",
   "advanced": "Advanced (A Folder)",
   "contact": {
