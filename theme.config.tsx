@@ -59,14 +59,13 @@ const config: DocsThemeConfig = {
       </>
     )
   },
-  // sidebar: {
-  //   titleComponent({ title, type, route }) {
-  //     if (route.split('/').length === 2) return
-  //     console.log(type, title, route)
-  //     return <>{title}</>
-  //   },
-  //   toggleButton: false,
-  // },
+  sidebar: {
+    titleComponent: ({ title, route }) => {
+      if (route.split('/').length === 2)
+        return <span className="dark:nx-text-white">{title}</span>
+      return title
+    },
+  },
   logo: (
     <>
       <Vercel />
@@ -86,6 +85,14 @@ const config: DocsThemeConfig = {
     Check: () => <span>✅</span>,
     Cross: () => <span>❌</span>,
     Image: (props: any) => <Image src={props.srcDark} {...props} />,
+    AppOnly: ({ children }: any) => {
+      const { route } = useRouter()
+      if (route.startsWith('/app')) return <>{children}</>
+    },
+    PagesOnly: ({ children }: any) => {
+      const { route } = useRouter()
+      if (route.startsWith('/pages')) return <>{children}</>
+    },
   },
 }
 
