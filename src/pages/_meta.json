@@ -5,8 +5,9 @@
       "breadcrumb": false
     }
   },
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "community": {
+    "title": "Community"
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",

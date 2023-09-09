@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 
 const NextJS = () => (
@@ -67,13 +68,19 @@ const config: DocsThemeConfig = {
   ),
   logoLink: '/',
   project: {
-    link: 'https://github.com/nextjs-guide/nextjs.guide-template',
+    link: 'https://github.com/nextjs-guide/nextjs.guide',
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase:
+    'https://github.com/nextjs-guide/nextjs.guide-template/tree/main/docs',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'Next.js Guide',
   },
   primaryHue: 213,
+  components: {
+    Check: () => <span>✅</span>,
+    Cross: () => <span>❌</span>,
+    Image: (props: any) => <Image src={props.src} alt={props.alt} {...props} />,
+  },
 }
 
 export default config
