@@ -3,6 +3,12 @@
   "another": "Another Page",
   "advanced": "Advanced (A Folder)",
   "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://github.com/nextjs-guide/nextjs.guide/discussions",
+    "newWindow": true
+  },
+  "help": {
     "title": "Discussions ↗",
     "type": "page",
     "href": "https://github.com/nextjs-guide/nextjs.guide/discussions",
