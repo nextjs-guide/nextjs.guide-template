@@ -25,3 +25,23 @@
     --tw-bg-opacity: 1;
     background-color: rgba(0,0,0,var(--tw-bg-opacity));
 }
+
+/* TODO: Fix CSS */
+/* SideBar */
+/* The first layer Title Component to be no `>` svg */
+aside > div > div > div > ul > li > a > svg {
+    display: none;
+}
+/* The second layer Title Component to have no left side space & line */
+aside > div > div > div > ul > li > div > div > ul {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+aside > div > div > div > ul > li > div > div > ul:before {
+    background-color: #000 !important;
+}
+
+aside > div > div > div > ul > li {
+    margin-bottom: 10px !important;
+}
