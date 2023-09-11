@@ -1,0 +1,12 @@
+{
+  "pages-and-layouts": "Pages and Layouts",
+  "dynamic-routes": "Dynamic Routes",
+  "linking-and-navigating": "Linking and Navigating",
+  "custom-app": "Custom App",
+  "custom-document": "Custom Document",
+  "custom-error": "Custom Error",
+  "api-routes": "API Routes",
+  "internationalization": "Internationalization",
+  "authenticating": "Authenticating",
+  "middleware": "Middleware"
+}
