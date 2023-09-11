@@ -1,0 +1,6 @@
+{
+  "production-checklist": "Going to Production",
+  "static-exports": "Static Exports",
+  "multi-zones": "Multi Zones",
+  "ci-build-caching": "Continuous Integration (CI) Build Caching"
+}
