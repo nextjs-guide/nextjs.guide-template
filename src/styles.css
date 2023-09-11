@@ -28,20 +28,43 @@
 
 /* TODO: Fix CSS */
 /* SideBar */
-/* The first layer Title Component to be no `>` svg */
-aside > div > div > div > ul > li > a > svg {
-    display: none;
-}
 /* The second layer Title Component to have no left side space & line */
 aside > div > div > div > ul > li > div > div > ul {
     padding-left: 0 !important;
     margin-left: 0 !important;
 }
-
 aside > div > div > div > ul > li > div > div > ul:before {
     background-color: #000 !important;
 }
-
 aside > div > div > div > ul > li {
     margin-bottom: 10px !important;
+}
+/* The mutual app & page layer as the second layer Title Component */
+aside > div > div > div > ul > li > div > div > ul > li > div > div > ul {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+aside > div > div > div > ul > li > div > div > ul > li > div > div > ul:before {
+    background-color: #000 !important;
+}
+/* Active menu style */
+aside > div > div > div > ul > li > div > div > ul > li > a {
+    background-color: #000 !important;
+}
+
+/* Custom jc- */
+.dark\:jc-main-title {
+    color: #000;
+}
+:is(html[class~=dark] .dark\:jc-main-title) {
+    color: #fff;
+}
+/* The first layer Title Component to be no `>` svg */
+.dark\:jc-main-title + svg {
+    display: none !important;
+}
+
+
+a:has(.jc-display-none) {
+    display: none;
 }

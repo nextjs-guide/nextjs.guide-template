@@ -1,4 +1,4 @@
-import Image, { ImageProps } from 'next/image'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 
@@ -61,8 +61,21 @@ const config: DocsThemeConfig = {
   },
   sidebar: {
     titleComponent: ({ title, route }) => {
-      if (route.split('/').length === 2)
-        return <span className="dark:nx-text-white">{title}</span>
+      const router = useRouter()
+
+      const appOnly = route === '/app'
+      const pagesOnly = route === '/pages'
+      if (appOnly || pagesOnly) return <span className="jc-display-none"></span>
+
+      const isFirstLayer = route.split('/').length === 2
+      const isAppFirstLayer =
+        route.startsWith('/app') && route.split('/').length === 3
+      const isPagesFirstLayer =
+        route.startsWith('/pages') && route.split('/').length === 3
+      if (isFirstLayer || isAppFirstLayer || isPagesFirstLayer) {
+        console.log({ title, route })
+        return <span className="dark:jc-main-title">{title}</span>
+      }
       return title
     },
   },
