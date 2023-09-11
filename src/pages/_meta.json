@@ -5,8 +5,12 @@
       "breadcrumb": false
     }
   },
-  "getting-started": {
-    "title": "Getting Started"
+  "getting-started": "Getting Started",
+  "architecture": {
+    "title": "Architecture",
+    "theme": {
+      "breadcrumb": false
+    }
   },
   "community": {
     "title": "Community",
