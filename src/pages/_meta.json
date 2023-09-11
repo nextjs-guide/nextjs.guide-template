@@ -1,8 +1,26 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "index": {
+    "display": "hidden",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
+  "getting-started": {
+    "title": "Getting Started"
+  },
+  "community": {
+    "title": "Community",
+    "theme": {
+      "breadcrumb": false
+    }
+  },
   "contact": {
+    "title": "Contact ↗",
+    "type": "page",
+    "href": "https://github.com/nextjs-guide/nextjs.guide/discussions",
+    "newWindow": true
+  },
+  "help": {
     "title": "Discussions ↗",
     "type": "page",
     "href": "https://github.com/nextjs-guide/nextjs.guide/discussions",

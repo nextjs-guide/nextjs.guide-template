@@ -1,4 +1,6 @@
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 
 const NextJS = () => (
   <svg height="20" viewBox="0 0 283 64" fill="none">
@@ -31,6 +33,60 @@ const Vercel = () => (
 )
 
 const config: DocsThemeConfig = {
+  head: () => {
+    const { asPath, defaultLocale, locale } = useRouter()
+    const { frontMatter } = useConfig()
+    const url =
+      'https://nextjs.guide' +
+      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+
+    return (
+      <>
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={frontMatter.title} />
+        <meta property="og:description" content={frontMatter.description} />
+      </>
+    )
+  },
+  main: ({ children }) => {
+    const { frontMatter } = useConfig()
+    return (
+      <>
+        <h1 className="nx-mt-2 nx-text-4xl nx-font-bold nx-tracking-tight">
+          {frontMatter.title}
+        </h1>
+        {children}
+      </>
+    )
+  },
+  sidebar: {
+    titleComponent: ({ title, route }) => {
+      // TODO: Get app or pages by cookie?
+      const router = useRouter()
+      const isApp = router.pathname.startsWith('/app')
+      const isPages = router.pathname.startsWith('/pages')
+      const isAppContent = route.startsWith('/app')
+      const isPagesContent = route.startsWith('/pages')
+      if ((isApp && isPagesContent) || (isPages && isAppContent)) {
+        return <span className="jc-display-none"></span>
+      }
+
+      const appOnly = route === '/app'
+      const pagesOnly = route === '/pages'
+      if (appOnly || pagesOnly) return <span className="jc-display-none"></span>
+
+      const isFirstLayer = route.split('/').length === 2
+      const isAppFirstLayer =
+        route.startsWith('/app') && route.split('/').length === 3
+      const isPagesFirstLayer =
+        route.startsWith('/pages') && route.split('/').length === 3
+      if (isFirstLayer || isAppFirstLayer || isPagesFirstLayer) {
+        return <span className="dark:jc-main-title">{title}</span>
+      }
+      return title
+    },
+    defaultMenuCollapseLevel: 3,
+  },
   logo: (
     <>
       <Vercel />
@@ -42,11 +98,23 @@ const config: DocsThemeConfig = {
   project: {
     link: 'https://github.com/nextjs-guide/nextjs.guide-template',
   },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'Next.js Guide',
   },
   primaryHue: 213,
+  components: {
+    Check: () => <span>✅</span>,
+    Cross: () => <span>❌</span>,
+    Image: (props: any) => <Image src={props.srcDark} {...props} />,
+    AppOnly: ({ children }: any) => {
+      const { route } = useRouter()
+      if (route.startsWith('/app')) return <>{children}</>
+    },
+    PagesOnly: ({ children }: any) => {
+      const { route } = useRouter()
+      if (route.startsWith('/pages')) return <>{children}</>
+    },
+  },
 }
 
 export default config
