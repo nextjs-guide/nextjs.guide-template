@@ -115,6 +115,8 @@ const config: DocsThemeConfig = {
       if (route.startsWith('/pages')) return <>{children}</>
     },
   },
+  docsRepositoryBase:
+    'https://github.com/nextjs-guide/nextjs.guide-template/src',
 }
 
 export default config
