@@ -1,0 +1,8 @@
+{
+  "server-side-rendering": "Server-side Rendering (SSR)",
+  "static-site-generation": "Static Site Generation (SSG)",
+  "incremental-static-regeneration": "Incremental Static Regeneration (ISR)",
+  "automatic-static-optimization": "Automatic Static Optimization",
+  "client-side-rendering": "Client-side Rendering (CSR)",
+  "edge-and-nodejs-runtimes": "Edge and Node.js Runtimes"
+}
