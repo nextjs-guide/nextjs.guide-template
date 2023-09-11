@@ -62,6 +62,13 @@ const config: DocsThemeConfig = {
   sidebar: {
     titleComponent: ({ title, route }) => {
       const router = useRouter()
+      const isApp = router.pathname.startsWith('/app')
+      const isPages = router.pathname.startsWith('/pages')
+      const isAppContent = route.startsWith('/app')
+      const isPagesContent = route.startsWith('/pages')
+      if ((isApp && isPagesContent) || (isPages && isAppContent)) {
+        return <span className="jc-display-none"></span>
+      }
 
       const appOnly = route === '/app'
       const pagesOnly = route === '/pages'
@@ -73,11 +80,11 @@ const config: DocsThemeConfig = {
       const isPagesFirstLayer =
         route.startsWith('/pages') && route.split('/').length === 3
       if (isFirstLayer || isAppFirstLayer || isPagesFirstLayer) {
-        console.log({ title, route })
         return <span className="dark:jc-main-title">{title}</span>
       }
       return title
     },
+    defaultMenuCollapseLevel: 3,
   },
   logo: (
     <>
