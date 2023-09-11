@@ -1,5 +1,4 @@
 {
-  "fetching-caching-and-revalidating": "Fetching, Caching, and Revalidating",
-  "patterns": "Data Fetching Patterns",
-  "forms-and-mutations": "Forms and Mutations"
+  "building-your-application": "Building Your Application",
+  "api-reference": "API Reference"
 }
