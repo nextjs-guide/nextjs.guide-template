@@ -61,6 +61,7 @@ const config: DocsThemeConfig = {
   },
   sidebar: {
     titleComponent: ({ title, route }) => {
+      // TODO: Get app or pages by cookie?
       const router = useRouter()
       const isApp = router.pathname.startsWith('/app')
       const isPages = router.pathname.startsWith('/pages')
