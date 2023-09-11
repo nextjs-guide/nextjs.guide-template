@@ -1,0 +1,8 @@
+{
+  "components": "Components",
+  "functions": "Functions",
+  "next-config-js": "next.config.js Options",
+  "create-next-app": "create-next-app",
+  "next-cli": "Next.js CLI",
+  "edge": "Edge Runtime"
+}
