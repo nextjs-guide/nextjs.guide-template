@@ -1,0 +1,10 @@
+{
+  "typescript": "TypeScript",
+  "eslint": "ESLint",
+  "environment-variables": "Environment Variables",
+  "absolute-imports-and-module-aliases": "Absolute Imports and Module Path Aliases",
+  "mdx": "MDX",
+  "src-directory": "src Directory",
+  "draft-mode": "Draft Mode",
+  "content-security-policy": "Content Security Policy"
+}
