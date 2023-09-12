@@ -49,6 +49,9 @@ aside > div > div > div > ul > li > div > div > ul > li > div > div > ul:before 
     display: none !important;
 }
 /* Active menu style */
+:is(html[class~=dark] aside > div > div > div > ul > li > a) {
+    background-color: #000 !important;
+}
 :is(html[class~=dark] aside > div > div > div > ul > li > div > div > ul > li > a) {
     background-color: #000 !important;
 }

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 
 // TODO: Style this
 export function AppPagesSelectButton() {
-  const [selectedOption, setSelectedOption] = useState('') // Set the initial selected value
+  const [selectedOption, setSelectedOption] = useState('')
   const router = useRouter()
 
   const handleSelectChange = (event) => {
@@ -13,11 +13,11 @@ export function AppPagesSelectButton() {
   useEffect(() => {
     if (router) {
       let url = router.pathname
-      if (selectedOption === 'APP') {
+      if (selectedOption === 'APP' && !url.includes('/app')) {
         url = url.replace('/pages', '/app')
         router.push(url)
       }
-      if (selectedOption === 'PAGES') {
+      if (selectedOption === 'PAGES' && url.includes('/app')) {
         url = url.replace('/app', '/pages')
         router.push(url)
       }
