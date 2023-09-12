@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import type { FC, ReactNode, ReactElement } from 'react'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 import { AppPagesSelectButton } from './src/components/AppPagesSelectButton'
 
@@ -92,6 +93,7 @@ const NextJS = () => (
 //   </svg>
 // )
 
+// TODO: Type Safe
 const config: DocsThemeConfig = {
   head: () => {
     const { asPath } = useRouter()
@@ -126,7 +128,16 @@ const config: DocsThemeConfig = {
     )
   },
   sidebar: {
-    titleComponent: ({ title, route }) => {
+    titleComponent: ({
+      title,
+      route,
+    }):
+      | ReactNode
+      | FC<{
+          title: string
+          type: string
+          route: string
+        }> => {
       // TODO: Get app or pages by cookie?
       const router = useRouter()
       const isApp = router.pathname.startsWith('/app')
@@ -170,17 +181,15 @@ const config: DocsThemeConfig = {
     Check: () => <span>✅</span>,
     Cross: () => <span>❌</span>,
     Image: (props: any) => <Image src={props.srcDark} {...props} />,
-    AppOnly: ({ children }: any) => {
+    AppOnly: ({ children }: any): ReactElement<any, any> | null => {
       const { route } = useRouter()
       if (route.startsWith('/app')) return <>{children}</>
     },
-    PagesOnly: ({ children }: any) => {
+    PagesOnly: ({ children }: any): ReactElement<any, any> | null => {
       const { route } = useRouter()
       if (route.startsWith('/pages')) return <>{children}</>
     },
   },
-  docsRepositoryBase:
-    'https://github.com/nextjs-guide/nextjs.guide-template/src',
 }
 
 export default config
