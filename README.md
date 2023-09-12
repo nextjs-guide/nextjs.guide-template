@@ -1,4 +1,4 @@
-# nextjs.guide-template
+# template.nextjs.guide
 
 Use this template to create a new local Next.js Guide.
 
