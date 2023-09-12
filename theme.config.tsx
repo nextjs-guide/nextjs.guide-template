@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import type { FC, ReactNode, ReactElement } from 'react'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 import { AppPagesSelectButton } from './src/components/AppPagesSelectButton'
 
@@ -92,16 +93,22 @@ const NextJS = () => (
 //   </svg>
 // )
 
+// TODO: Type Safe
 const config: DocsThemeConfig = {
   head: () => {
-    const { asPath, defaultLocale, locale } = useRouter()
+    const { asPath } = useRouter()
     const { frontMatter } = useConfig()
-    const url =
-      'https://nextjs.guide' +
-      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+    const url = 'https://nextjs.guide' + asPath
 
     return (
       <>
+        <title>{frontMatter.title} | Next.js Guide</title>
+        <link
+          rel="icon"
+          href="/favicon.ico"
+          type="image/x-icon"
+          sizes="48x48"
+        ></link>
         <meta property="og:url" content={url} />
         <meta property="og:title" content={frontMatter.title} />
         <meta property="og:description" content={frontMatter.description} />
@@ -121,7 +128,16 @@ const config: DocsThemeConfig = {
     )
   },
   sidebar: {
-    titleComponent: ({ title, route }) => {
+    titleComponent: ({
+      title,
+      route,
+    }):
+      | ReactNode
+      | FC<{
+          title: string
+          type: string
+          route: string
+        }> => {
       // TODO: Get app or pages by cookie?
       const router = useRouter()
       const isApp = router.pathname.startsWith('/app')
@@ -165,17 +181,15 @@ const config: DocsThemeConfig = {
     Check: () => <span>✅</span>,
     Cross: () => <span>❌</span>,
     Image: (props: any) => <Image src={props.srcDark} {...props} />,
-    AppOnly: ({ children }: any) => {
+    AppOnly: ({ children }: any): ReactElement<any, any> | null => {
       const { route } = useRouter()
       if (route.startsWith('/app')) return <>{children}</>
     },
-    PagesOnly: ({ children }: any) => {
+    PagesOnly: ({ children }: any): ReactElement<any, any> | null => {
       const { route } = useRouter()
       if (route.startsWith('/pages')) return <>{children}</>
     },
   },
-  docsRepositoryBase:
-    'https://github.com/nextjs-guide/nextjs.guide-template/src',
 }
 
 export default config
