@@ -22,7 +22,7 @@ export function AppPagesSelectButton() {
         router.push(url)
       }
     }
-  }, [selectedOption])
+  }, [selectedOption, router])
 
   return (
     <select
