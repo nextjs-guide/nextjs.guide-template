@@ -94,14 +94,19 @@ const NextJS = () => (
 
 const config: DocsThemeConfig = {
   head: () => {
-    const { asPath, defaultLocale, locale } = useRouter()
+    const { asPath } = useRouter()
     const { frontMatter } = useConfig()
-    const url =
-      'https://nextjs.guide' +
-      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+    const url = 'https://nextjs.guide' + asPath
 
     return (
       <>
+        <title>{frontMatter.title} | Next.js Guide</title>
+        <link
+          rel="icon"
+          href="/favicon.ico"
+          type="image/x-icon"
+          sizes="48x48"
+        ></link>
         <meta property="og:url" content={url} />
         <meta property="og:title" content={frontMatter.title} />
         <meta property="og:description" content={frontMatter.description} />
