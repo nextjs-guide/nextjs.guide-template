@@ -12,7 +12,7 @@ const NextJS = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <g clip-path="url(#clip0_102_26)">
+    <g clipPath="url(#clip0_102_26)">
       <path
         d="M261.919 0.0330811H330.547V12.7H303.323V79.339H289.71V12.7H261.919V0.0330811Z"
         fill="black"
@@ -30,8 +30,8 @@ const NextJS = () => (
         fill="black"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M80.907 79.339L17.0151 0H0V79.3059H13.6121V16.9516L63.8067 79.339H80.907Z"
         fill="black"
       />
@@ -59,14 +59,14 @@ const NextJS = () => (
     />
     <rect x="74.125" y="140" width="43.875" height="12" fill="black" />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M28 137C28 118.222 43.2223 103 62 103H84C99.662 103 112.851 113.59 116.796 128H100.586C97.4995 120.936 90.4512 116 82.25 116H63.75C52.7043 116 43.75 124.954 43.75 136V150C43.75 161.046 52.7043 170 63.75 170H82.25C93.2956 170 102.25 161.046 102.25 150V140H118V149C118 167.778 102.778 183 84 183H62C43.2223 183 28 167.778 28 149V137Z"
       fill="black"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M238.076 103.212H238V182.212H278C285.054 182.212 291.606 180.064 297.038 176.386L288.391 165.654C285.158 167.897 281.233 169.212 277 169.212H252V120.493L238.076 103.212ZM302.605 171.678L293.552 160.443C295.728 157.241 297 153.375 297 149.212V136.212C297 125.167 288.046 116.212 277 116.212H257.911L247.436 103.212H278C296.778 103.212 312 118.435 312 137.212V148.212C312 157.311 308.426 165.576 302.605 171.678Z"
       fill="black"
     />
@@ -99,10 +99,10 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter()
     const { frontMatter } = useConfig()
     const url = 'https://nextjs.guide' + asPath
-
+    const title = `${frontMatter.title} | Next.js Guide`
     return (
       <>
-        <title>{frontMatter.title} | Next.js Guide</title>
+        <title>{title}</title>
         <link
           rel="icon"
           href="/favicon.ico"
@@ -180,7 +180,9 @@ const config: DocsThemeConfig = {
   components: {
     Check: () => <span>✅</span>,
     Cross: () => <span>❌</span>,
-    Image: (props: any) => <Image src={props.srcDark} {...props} />,
+    Image: (props: any) => (
+      <Image src={props.srcDark} alt={props.alt} {...props} />
+    ),
     AppOnly: ({ children }: any): ReactElement<any, any> | null => {
       const { route } = useRouter()
       if (route.startsWith('/app')) return <>{children}</>
