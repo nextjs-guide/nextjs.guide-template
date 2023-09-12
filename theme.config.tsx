@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
+import { AppPagesSelectButton } from './src/components/AppPagesSelectButton'
 
 const NextJS = () => (
   <svg
@@ -111,6 +112,7 @@ const config: DocsThemeConfig = {
     const { frontMatter } = useConfig()
     return (
       <>
+        <AppPagesSelectButton />
         <h1 className="nx-mt-2 nx-text-4xl nx-font-bold nx-tracking-tight">
           {frontMatter.title}
         </h1>
