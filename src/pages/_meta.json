@@ -20,16 +20,10 @@
       "breadcrumb": false
     }
   },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://github.com/nextjs-guide/nextjs.guide/discussions",
-    "newWindow": true
-  },
-  "help": {
+  "discussions": {
     "title": "Discussions ↗",
     "type": "page",
-    "href": "https://github.com/nextjs-guide/nextjs.guide/discussions",
+    "href": "https://github.com/nextjs-guide/nextjs.guide/discussions/categories/template",
     "newWindow": true
   }
 }
