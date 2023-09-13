@@ -13,13 +13,13 @@ export function AppPagesSelectButton() {
   useEffect(() => {
     if (router) {
       let url = router.pathname
-      if (selectedOption === 'APP' && !url.includes('/app')) {
-        url = url.replace('/pages', '/app')
-        router.push(url)
-      }
       if (selectedOption === 'PAGES' && url.includes('/app')) {
-        url = url.replace('/app', '/pages')
-        router.push(url)
+        const newURL = url.replace(/\/app/, '/pages')
+        router.push(newURL)
+      }
+      if (selectedOption === 'APP' && url.includes('/pages')) {
+        const newURL = url.replace(/\/pages/, '/app')
+        router.push(newURL)
       }
     }
   }, [selectedOption, router])
