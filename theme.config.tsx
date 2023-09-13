@@ -144,8 +144,12 @@ const config: DocsThemeConfig = {
       const isPages = router.pathname.startsWith('/pages')
       const isAppContent = route.startsWith('/app')
       const isPagesContent = route.startsWith('/pages')
-      if ((isApp && isPagesContent) || (isPages && isAppContent)) {
-        return <span className="jc-display-none"></span>
+      if (
+        (isApp && isPagesContent) ||
+        (isPages && isAppContent) ||
+        (!isApp && !isPages && isPagesContent)
+      ) {
+        return <span className="jc-title-display-none"></span>
       }
 
       const appOnly = route === '/app'
