@@ -1,8 +1,0 @@
-{
-  "get-static-props": "getStaticProps",
-  "get-static-paths": "getStaticPaths",
-  "forms-and-mutations": "Forms and Mutations",
-  "get-server-side-props": "getServerSideProps",
-  "incremental-static-regeneration": "Incremental Static Regeneration",
-  "client-side": "Client-side Fetching"
-}
