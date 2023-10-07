@@ -1,0 +1,11 @@
+# Build Outputs
+.next/
+dist/
+node_modules/
+
+# Docs
+docs/
+
+# Misc
+.github/
+pnpm-lock.yaml
